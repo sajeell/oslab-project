@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import gql from "graphql-tag";
+import Chart from "./chart.jsx";
 import { useQuery } from "@apollo/react-hooks";
 
 const LAUNCHES_QUERY = gql`
@@ -19,7 +20,7 @@ function Launches() {
   console.log(data);
   if (data.launches) {
     return data.launches.map(
-      ({ flight_number, mission_name, launch_date_local }) => (
+      ({ flight_number, mission_name, launch_date_local, launch_success }) => (
         <Fragment>
           <div key={flight_number}>
             <p>
@@ -29,8 +30,11 @@ function Launches() {
               <br />
               Launch Date: {launch_date_local}
               <br />
+              Launch Success: {launch_success}
+              <br />
             </p>
           </div>
+          <Chart />
         </Fragment>
       )
     );
