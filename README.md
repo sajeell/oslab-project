@@ -18,3 +18,4 @@ It included Docker, so one have to just clone it, and run `docker-compose up`, a
 
 You can also:
   - See the app in https://obscure-thicket-62092.herokuapp.com/.
+  - Pull the image from Docker Hub https://hub.docker.com/r/realsajeel289/oslab-project
