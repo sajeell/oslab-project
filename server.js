@@ -15,6 +15,10 @@ app.use(
 );
 
 app.use(express.static("build"));
+// API Endpoint
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "build", "index.html"));
+});
 
 app.get("/date", (req, res) => {
     
@@ -24,10 +28,7 @@ app.get("/date", (req, res) => {
 } )
 
 
-// API Endpoint
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "build", "index.html"));
-});
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
